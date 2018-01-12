@@ -1,13 +1,270 @@
-@media screen and (max-width: 1199px)
-	.container
-		width: 950px
-
-
-@media screen and (max-width: 970px)
-	.container
+@media screen and (max-width: 1040px)
+	img
+		max-width: 100%
+	.case
 		width: 750px
 
+	.panel
+		&__logo
+			margin-right: 0
 
-@media screen and (max-width: 767px)
-	.container
+		&__tel
+			&-number
+				.icon
+					display: none
+			&-desc, &-number
+				margin-left: 20px
+
+	.nav
+		padding-top: 10px
+		padding-bottom: 10px
+		background: #f9b518
+		&__wrap
+			display: none
+			border-top: none
+			li
+				text-align: left
+				display: block
+				margin-left: 0 !important
+				margin-right: 0 !important
+				&:before
+					display: none
+				ul
+					display: none !important
+
+				a
+					color: white
+
+		&__button
+			margin-left: auto
+			width: 40px
+			height: 26px
+			cursor: pointer
+			span
+				display: block
+				width: 40px
+				height: 4px
+				background: white
+				margin-bottom: 7px
+				&:last-of-type
+					margin-bottom: 0
+	.banner
+		background: #574B48 !important
+		&__wrap
+			margin-right: auto
+			
+	.about
+		&__txt-left, &__txt-right
+			width: 100%
+			padding-left: 0
+			padding-right: 0
+		&__txt-left
+			margin-bottom: 15px
+		&__advantages
+			.advantages
+				&__txt
+					padding-left: 5px
+					padding-right: 5px
+	.share
+		background-size: cover
+
+	.feedback
+		.case
+			background: none
+		&__wrap
+			margin-right: auto
+			padding-bottom: 30px
+
+	.catalog-p
+		&__slider, &__content
+			width: 100%
+			display: block
+		&__slider
+			margin-bottom: 20px
+
+	.reviews
+		&__txt
+			max-width: 630px
+@media screen and (max-width: 790px)
+	body, .col_line
+		font-size: 18px
+
+	.title
+		font-size: 30px
+		font-weight: 700
+
+	.case
 		width: 100%
+
+	.panel
+		&__logo, &__tel, &__btn
+			float: none
+			margin-left: auto
+			margin-right: auto
+			
+	.banner
+		padding-bottom: 30px
+		&__title
+			font-size: 32px
+		&__desc
+			font-size: 20px
+		&__advantages
+			.advantages
+				&__item
+					margin-bottom: 0
+			
+	.about
+		padding-bottom: 0
+		&__advantages
+			padding-bottom: 0
+			.advantages
+				&__item
+					width: 100%
+					margin-bottom: 20px
+				&__icon
+					margin-bottom: 5px
+
+				&__txt
+					max-width: none
+
+
+	.catalog, .share, .news, .reviews, .feedback, .catalog-p, .callback, .reviews-p, .steps
+		padding-top: 20px
+		padding-bottom: 20px
+		&__title
+			margin-bottom: 20px
+	
+	.catalog
+		&__list
+			margin-left: -5px
+			margin-right: -5px
+		&__item
+			margin-top: 0
+			margin-left: 5px
+			margin-right: 5px
+
+	.clockdiv
+		&__dot
+			display: none
+		&__wrap
+			display: block
+			margin-left: auto
+			margin-right: auto
+			margin-bottom: 10px
+			&:last-of-type
+				margin-bottom: 0
+
+	.news
+		&__item
+			width: 100%
+		&__img
+			margin-bottom: 8px
+			img
+				margin-left: auto
+				margin-right: auto
+
+	.reviews
+		background-size: cover
+		&__title
+			padding-left: 25px
+			padding-right: 25px
+		.slick-arrow
+			top: -35px
+
+	.feedback
+		&__wrap
+			width: 100%
+			padding-top: 0
+			padding-bottom: 0
+		
+		&__text, &__area
+			margin-bottom: 10px
+
+	.colors
+		display: none
+
+	.catalog-p
+		&__free
+			text-align: center
+			padding-left: 15px
+			padding-right: 15px
+
+	.callback
+		background-size: cover
+
+	.reviews-p
+		&__title
+			text-align: center
+			margin-bottom: 10px
+		&__title, &__btn
+			float: none
+			margin-left: auto
+			margin-right: auto
+
+
+	.steps
+		&__step
+			width: 100%
+			display: block
+			margin-bottom: 15px
+		&__img
+			margin-bottom: 4px
+			img
+				margin-left: auto
+				margin-right: auto
+		&__txt
+			margin-left: auto
+			margin-right: auto
+			max-width: 320px
+
+		&__item
+			&:last-of-type
+				margin-bottom: 0
+				padding-bottom: 0
+
+	.difference
+		font-size: 20px
+		padding-top: 20px
+		padding-bottom: 20px
+
+	.page__wrap
+		table
+			width: 100%
+		thead, tbody
+			td
+				padding: 5px
+		h1
+			font-size: 30px
+		h2
+			font-size: 24px
+		h3
+			font-size: 20px
+		ul li
+			font-size: 18px
+
+	.popup
+		width: 95% !important
+		padding: 15px
+		&__close
+			top: 10px
+			right: 10px
+		&__title
+			padding-left: 20px
+			padding-right: 20px
+		&__text, &__area
+			margin-bottom: 10px
+
+@media screen and (max-width: 450px)
+	.page__wrap
+		table
+			width: calc(100% + 30px)
+			margin-left: -15px
+			margin-right: -15px
+
+		td
+			padding: 2px
+
+	.btn
+		&_border
+			padding-left: 5px
+			padding-right: 5px

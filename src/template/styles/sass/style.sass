@@ -1,12 +1,15 @@
 /* Including styles files */
 @import sprite.sass
 @import fonts.sass
+@import url('../../libs/slick-carousel/slick/slick.css')
+@import url('../../libs/slick-carousel/slick/slick-theme.css')
+@import url('../../libs/fancybox/dist/jquery.fancybox.css')
 
 
 /* Global settings */
-$font-size: 16px
-$font-family-1: 'Tahoma', sans-serif
-$color-1: #000
+$font-size: 20px
+$font-family-1: 'Cuprum', sans-serif
+$color-1: #1c2a3c
 
 
 
@@ -61,13 +64,13 @@ img
 	display: inline-block
 	vertical-align: middle
 
-.text, .button, .slick-slide, .area
+.text, .btn, .slick-slide, .area
 	outline: none
 
 /* Grid */
-.container
+.case
 	position: relative
-	width: (1140px + 30px)
+	width: (1000px + 30px)
 	padding-left: 15px
 	padding-right: 15px
 
@@ -102,34 +105,41 @@ img
 		width: (100% / 4)
 	&-5
 		width: (100% / 5)
- 
 
-	
+
+
 
 
 
 /* Form elements */
 .text
 	display: block
-	font-size: $font-size
+	font-size: 17px
 	font-family: $font-family-1
 	background: white
 	width: 100%
+	padding: 11px 20px
+	border: 1px solid #dedfe3
+	border-radius: 5px
 	&::placeholder
-		color: #878686
+		color: #999999
 
 .area
-	font-size: $font-size
+	font-size: 17px
 	font-family: $font-family-1
 	display: block
 	background: white
 	resize: none
-	border: 1px solid #f0f0f0
+	padding: 11px 20px
+	border: 1px solid #dedfe3
+	border-radius: 5px
+	width: 100%
+	height: 100px
 	&::placeholder
-		color: #878686
+		color: #999999
 
 
-.button
+.btn
 	position: relative
 	display: block
 	font-size: $font-size
@@ -139,20 +149,780 @@ img
 	margin-right: auto
 	text-align: center
 	transition: .3s
-
+	border-radius: 5px
+	width: 100%
+	font-weight: 700
+	&_yellow
+		color: #fff
+		background-color: #f9b518
+		max-width: 205px
+		padding: 11px 15px
+		&:hover
+			background-color: #ef7c00
+	&_border
+		padding: 10px 15px
+		border: 1px solid #ffffff
+		max-width: 320px
+		&:hover
+			color: $color-1
+			background-color: #FFF
 .text, .area
 	transition: border-color .3s
 
 
 
 
-/* Blocks */ 
+/* Blocks */
 .left
 	float: left
 
 .right
 	float: right
 
-.center, .container
+.mid, .case
 	margin-left: auto
 	margin-right: auto
+
+.popup
+	display: none
+	position: relative
+	width: 660px
+	text-align: center
+	padding: 45px 40px
+	font-family: $font-family-1
+	&__close
+		position: absolute
+		right: 20px
+		top: 20px
+		transition: .3s
+		cursor: pointer
+		&:hover
+			transform: rotate(90deg)
+	&__title
+		margin-bottom: 12px
+	&__text, &__area
+		margin-bottom: 20px
+	&_thanks
+		padding-bottom: 320px
+		background: url('../../img/bg/worker-2.png') no-repeat center bottom
+		.popup
+	&_callback
+		.popup
+			&__desc
+				margin-bottom: 26px
+
+	.fancybox-close-small
+		display: none
+
+.title
+	font-size: 45px
+	text-align: center
+
+.desc
+	color: #4d4d4d
+
+.panel
+	padding-top: 10px
+	padding-bottom: 10px
+	&__logo
+		width: 280px
+		margin-right: 230px
+		a
+			display: block
+			font-size: 0
+		img, span
+			display: inline-block
+			vertical-align: middle
+		span
+			font-size: 23px
+			font-weight: 700
+			width: 225px
+			margin-left: 10px
+	&__tel
+		padding-top: 7px
+		width: 230px
+		&-desc
+			margin-left: 37px
+			font-size: 18px
+			color: #8d8d8d
+			margin-bottom: 5px
+		&-number
+			position: relative
+			font-size: 25px
+			font-weight: 700
+			margin-left: 37px
+			.icon
+				position: absolute
+				left: -37px
+				top: 4px
+			a
+				display: inline-block
+				vertical-align: middle
+	&__btn
+		float: right
+		margin-top: 9px
+
+	&_white
+		.panel__logo span, .panel__tel *
+			color: white
+
+
+.nav
+	text-align: center
+	&__wrap
+		border-top: 1px solid #e5e5e5
+		padding-top: 13px
+		> ul
+			> li
+				position: relative
+				margin-left: 20px
+				margin-right: 20px
+				&:first-of-type
+					margin-left: 0
+				&:last-of-type
+					margin-right: 0
+				&.current_page_item, &:hover
+					&:before
+						opacity: 1
+				&:before
+					opacity: 0
+					content: ''
+					position: absolute
+					top: -14px
+					left: 0
+					width: 100%
+					height: 4px
+					transition: .3s
+					background-color: #fabe34
+				&:hover
+					> ul
+						display: block
+						opacity: 1
+						z-index: 10
+						transform: translateY(0px)
+				> a
+					padding-bottom: 15px
+				> ul
+					opacity: 0
+					z-index: -1
+					position: absolute
+					top: 37px
+					left: 0
+					color: white
+					width: 220px
+					background-color: #fabe34
+					text-align: left
+					padding-top: 10px
+					padding-bottom: 10px
+					transition: .3s
+					transform: translateY(50px)
+					> li 
+						display: block
+						> a
+							color: #fff
+							padding: 3px 10px
+							&:hover
+								background: #ef7c00
+	
+		li
+			font-size: 18px
+
+		a
+			display: block
+
+
+.banner
+	color: #fff
+	background-position: center
+	background-repeat: no-repeat
+	// background-size: cover
+	&__wrap
+		width: 100%
+		max-width: 595px
+		margin-left: auto
+		text-align: center
+	&__title
+		 font-size: 60px
+		 font-weight: 700
+		 color: #ffea00
+		 padding-top: 15px
+		 padding-bottom: 5px
+	&__desc
+		font-size: 30px
+		font-weight: 700
+		margin-bottom: 12px
+	&__btn
+		// max-width: 205px
+		margin-bottom: 20px
+	&__advantages
+		position: relative
+		border-top: 1px solid #3d3432
+		max-width: 575px
+		width: 100%
+		margin-left: auto
+		&:before
+			content: ''
+			display: block
+			position: absolute
+			top: 1px
+			left: 0
+			width: 100%
+			height: 1px
+			background: #796f6d
+		.advantages
+			&__item
+				width: 33.3333%
+				padding-top: 20px
+				margin-bottom: 25px
+				&:nth-of-type(1), &:nth-of-type(2)
+					width: 50%
+					.advantages
+						&__icon
+							margin-bottom: 10px
+			&__icon
+				height: 48px
+				line-height: 48px
+				margin-bottom: 10px
+
+.about
+	padding-top: 30px
+	padding-bottom: 20px
+	&__title
+		margin-bottom: 20px
+	&__txt-left, &__txt-right
+		width: 50%
+		text-align: left
+		font-size: 18px
+		color: #4d4d4d
+		p
+			margin-bottom: 15px
+			&:last-of-type
+				margin-bottom: 0
+	&__txt-left
+		padding-right: 12px
+	&__txt-right
+		padding-left: 12px
+	&__advantages
+		 padding-top: 25px
+		 padding-bottom: 25px
+		 .advantages
+			 &__item
+				 width: 33.3333%
+			 &__icon
+				 height: 64px
+				 line-height: 64px
+				 margin-bottom: 20px
+			 &__txt
+				 font-size: 18px
+				 font-weight: 700
+				 max-width: 315px
+				 margin-left: auto
+				 margin-right: auto
+
+.catalog
+	padding-top: 41px
+	padding-bottom: 50px
+	background-color: #f6f7fb
+	&__title
+		margin-bottom: 5px
+	&__list
+		margin-left: -20px
+		margin-right: -20px
+	&__item
+		position: relative
+		width: 235px
+		border: 2px solid #dedfe3
+		padding-left: 10px
+		padding-right: 10px
+		padding-bottom: 20px
+		margin: 10px
+	&__img
+		padding-top: 12px
+		padding-bottom: 12px
+		border-bottom: 1px solid #dedfe3
+		line-height: 289px
+		a
+			display: block
+			&:before
+				opacity: 0
+				content: ''
+				position: absolute
+				top: 50%
+				left: 50%
+				margin-left: -17px
+				margin-top: -85px
+				transition: .3s
+				transform: scale(0)
+				@include sprite($magniffic-glass)
+			&:hover
+				&:before
+					opacity: 1
+					transform: scale(1)
+		img
+			max-height: 289px
+			display: inline-block
+			vertical-align: middle
+	&__name
+		font-size: 22px
+		font-weight: 700
+		padding-top: 16px
+		padding-bottom: 12px
+	&__desc
+		font-size: 18px
+		margin-bottom: 12px
+		color: #4d4d4d
+	&__price
+		&-old, &-new
+			display: inline-block
+			vertical-align: middle
+		&-old
+			color: #4d4d4d
+			text-decoration: line-through
+		&-new
+			font-size: 25px
+			font-weight: 700
+			margin-left: 4px
+	
+	&__btn
+		// max-width: 205px
+		margin-top: 20px
+
+
+.share
+	padding-top: 43px
+	padding-bottom: 50px
+	background: url('../../img/bg/scribbles.png') no-repeat center
+	&__title
+		color: #ffffff
+		font-weight: 700
+		font-size: 44px
+		margin-bottom: 17px
+
+.clockdiv
+	text-align: center
+	&__wrap
+		width: 105px
+		display: inline-block
+		vertical-align: middle
+		position: relative
+		margin-right: 25px
+		&:before, &:after
+			z-index: 0
+			content: ''
+			position: absolute
+			width: 50px
+			height: 73px
+			top: 0
+			border-radius: 5px
+			background: white
+		&:before
+			left: 0
+		&:after
+			left: 55px
+		&:nth-of-type(1)
+			display: none
+
+	&__count
+		display: block
+		z-index: 1
+		position: relative
+		font-size: 70px
+		letter-spacing: 12px
+		padding-left: 5px
+		font-family: Courier New, monospace
+		&:before, &:after
+			display: block
+			content: ''
+			position: absolute
+			z-index: 2
+			width: 50px
+			height: 2px
+			top: 33px
+			background: #b3a795
+		&:before
+			left: 0
+		&:after
+			left: 55px
+
+	&__dot
+		position: absolute
+		right: -40px
+		font-size: 80px
+		line-height: 73px
+		font-weight: 700
+		font-family: Courier New, monospace
+		z-index: 1
+
+.label
+	position: absolute
+	top: 12px
+	left: 12px
+	p
+		display: inline-block
+		vertical-align: top
+		width: 40px
+		height: 40px
+		line-height: 32px
+		margin-right: 5px
+		font-size: 14px
+		font-weight: 700
+		color: #fff
+		border-radius: 50%
+		span
+			border: 1px dashed #ffffff
+			display: block
+			width: 34px
+			height: 34px
+			border-radius: 50%
+			margin: 3px
+	&-sale
+		background-color: #d02626
+	&-new
+		background-color: #297807
+	&-hit
+		background-color: #ff8b07
+
+.news
+	padding-top: 41px
+	padding-bottom: 50px
+	&__title
+		margin-bottom: 25px
+	&__list
+		margin-left: -10px
+		margin-right: -10px
+	&__item
+		width: 33.3333%
+		padding-left: 8px
+		padding-right: 8px
+		text-align: left
+		margin-bottom: 25px
+	&__img
+		margin-bottom: 16px
+	&__name
+		font-size: 24px
+		margin-bottom: 7px
+	&__txt
+		font-size: 18px
+		color: #4d4d4d
+
+.reviews
+	padding-top: 41px
+	padding-bottom: 45px
+	color: white
+	background: url('../../img/bg/shavings.png') no-repeat center
+	&__title
+		margin-bottom: 25px
+	&__txt
+		font-size: 18px
+		font-style: italic
+		max-width: 910px
+		margin-left: auto
+		margin-right: auto
+	
+
+
+.feedback
+	.case
+		background: url('../../img/bg/worker-1.png') no-repeat 41px bottom
+	&__wrap
+		padding-top: 34px
+		width: 575px
+		margin-left: auto
+		padding-bottom: 70px
+	&__title
+		margin-bottom: 15px
+	&__desc
+		color: #4d4d4d
+		text-align: center
+		margin-bottom: 25px
+	&__text, &__area
+		margin-bottom: 20px
+
+.catalog-p
+	padding-top: 30px
+	padding-bottom: 30px
+	&__title
+		margin-bottom: 15px
+	&__item
+		border: 2px solid #dedfe3
+		padding: 25px 22px 20px 10px
+		margin-bottom: 20px
+	&__slider
+		width: 460px
+		padding-top: 12px
+		padding-left: 25px
+		padding-right: 25px
+		
+	&__slide
+		text-align: center
+		img
+			display: inline-block
+			vertical-align: middle
+			line-height: 370px
+			max-height: 370px
+			margin-bottom: 30px
+		p
+			font-size: 18px
+			color: #666666
+			span
+				display: block
+				&:before
+					content: '«'
+				&:after
+					content: '»'
+
+
+	&__content
+		width: 470px
+		float: right
+
+	&__name
+		font-size: 26px
+		font-weight: 700
+		margin-bottom: 10px
+
+	&__desc
+		font-size: 18px
+		color: #4d4d4d
+		padding-bottom: 15px
+		border-bottom: 1px solid #dedfe3
+
+	&__txt
+		margin-top: 17px
+		margin-bottom: 15px
+
+	&__free
+		background-color: #f6f7fb
+		font-size: 22px
+		font-weight: 700
+		padding: 15px 20px
+		text-transform: uppercase
+		margin-bottom: 17px
+
+	&__data
+		margin-top: 17px
+		padding-top: 21px
+		border-top: 1px solid #dedfe3
+		&-title, &-desc
+			margin-left: 7px
+		&-title
+			margin-bottom: 8px
+		&-desc
+			font-size: 16px
+			color: #666666
+	&__price
+		margin-top: 14px
+		&-old, &-new
+			display: inline-block
+			vertical-align: middle
+		&-old
+			font-size: 25px
+			color: #4d4d4d
+			text-decoration: line-through
+		&-new
+			font-size: 35px
+			margin-left: 8px
+
+.colors
+	&__title
+		margin-bottom: 6px
+	&__list
+		margin-left: -15px
+	&__list-wrap
+		display: inline-block
+		vertical-align: top
+		+ .colors__item
+			width: 95px
+			display: inline-block
+			vertical-align: top
+	&__item
+		color: #333333
+		font-size: 16px
+		text-align: center
+		img
+			margin-left: auto
+			margin-right: auto
+			margin-bottom: 8px
+	.slick-slide
+		width: 95px !important
+	.slick-list
+		padding: 0 !important
+	.slick-track
+		width: 100% !important
+		transform: none !important
+
+
+.page
+	padding-top: 30px
+	padding-bottom: 50px
+	&__title
+		margin-bottom: 20px
+	&__wrap
+		h1, h2, h3
+			display: block
+			margin-top: 5px
+			margin-bottom: 10px
+		h1
+			font-size: 45px
+		h2
+			font-size: 35px
+		h3
+			font-size: 24px
+
+		ul
+			margin-top: 20px
+			margin-bottom: 20px
+
+		p
+			margin-bottom: 15px
+
+			
+		li
+			display: block
+			padding-left: 30px
+			margin-bottom: 15px
+			background: url('../../img/bg/check.png') no-repeat left 4px
+
+		table
+			border-collapse: collapse
+			text-align: center
+			margin-top: 25px
+			margin-bottom: 25px
+		thead
+			td
+				padding: 10px 35px
+				color: #fff
+				background-color: #f9b518
+
+		tbody
+			tr
+				&:nth-of-type(even)
+					td
+						background-color: #f7f9fa
+			td
+				padding: 6px 35px
+
+
+
+
+
+
+
+.callback
+	color: #fff
+	padding-top: 41px
+	padding-bottom: 50px
+	background: url("../../img/bg/scribbles.png") no-repeat center
+	&__title
+		font-weight: 700
+		margin-bottom: 5px
+	&__txt
+		font-weight: 700
+		text-align: center
+		margin-bottom: 25px
+	&__btn
+		color: #fff
+		
+.reviews-p
+	padding-top: 30px
+	padding-bottom: 25px
+	&__title
+		width: 100%
+		max-width: 400px
+		text-align: left
+	&__btn
+		float: right
+		position: relative
+		top: 3px
+
+	&__item
+		padding-top: 25px
+		padding-bottom: 25px
+		color: #666666
+		font-size: 18px
+		border-bottom: 1px solid #e5e5e5
+		&:last-of-type
+			border-bottom: none
+
+	&__data
+		// font-weight: 700
+		margin-bottom: 10px
+	&__name, &__date
+		display: inline-block
+		vertical-align: top
+	&__name
+		font-weight: 700
+		&:after
+			position: relative
+			top: -2px
+			content: '|'
+			display: inline-block
+			vertical-align: top
+			margin-left: 10px
+			margin-right: 3px
+	&__txt
+		font-style: italic
+
+.steps
+	padding-top: 30px
+	&__title
+		margin-bottom: 15px
+	&__item
+		padding-bottom: 25px
+		margin-bottom: 26px
+		border-bottom: 1px solid #e5e5e5
+		&:last-of-type
+			border-bottom: none
+	&__subtitle
+		color: #4d4d4d
+		font-weight: 700
+		font-size: 25px
+		text-align: center
+		margin-bottom: 14px
+	&__list
+		margin-left: -10px
+		margin-right: -10px
+	&__step
+		width: 33.3333%
+		padding-left: 10px
+		padding-right: 10px
+
+	&__img
+		margin-bottom: 19px
+		
+	&__txt
+		font-size: 18px
+		color: #4d4d4d
+
+
+.difference
+	font-size: 25px
+	padding-top: 40px
+	padding-bottom: 42px
+	text-align: center
+	background-color: #f6f7fb
+	&__txt
+		max-width: 970px
+		margin-left: auto
+		margin-right: auto
+	
+
+
+.footer
+	padding-top: 5px
+	padding-bottom: 5px
+	background-color: #1d1d1e
+
+
+.slick-arrow
+	z-index: 1
+	width: auto
+	height: auto
+	&:before
+		display: none
+
+
+.slick-prev
+	left: 0
+.slick-next
+	right: 0
